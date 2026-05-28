@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Кейсы — Альжанова Алтынай</title>
+  <title>Сделки — Альжанова Алтынай</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -255,159 +255,160 @@
     <a href="index.html" class="logo">А.А.К</a>
     <ul>
       <li><a href="index.html#about">Обо мне</a></li>
-      <li><a href="cases.html" class="active">Кейсы</a></li>
+      <li><a href="index.html#projects">Объекты</a></li>
+      <li><a href="cases.html" class="active">Сделки</a></li>
       <li><a href="index.html#contact">Контакт</a></li>
     </ul>
   </nav>
 
   <div class="page-header">
-    <p class="section-label">Портфолио</p>
-    <h1>Избранные кейсы</h1>
-    <p>Проекты, в которых я решала реальные задачи бизнеса — от исследования до финального результата.</p>
+    <p class="section-label">Мои сделки</p>
+    <h1>Закрытые сделки</h1>
+    <p>Реальные истории клиентов — от первого запроса до получения ключей. Каждая сделка уникальна.</p>
   </div>
 
   <div class="filter-row">
     <button class="filter-btn active" onclick="filterCases('all', this)">Все</button>
-    <button class="filter-btn" onclick="filterCases('smm', this)">SMM</button>
-    <button class="filter-btn" onclick="filterCases('brand', this)">Брендинг</button>
-    <button class="filter-btn" onclick="filterCases('content', this)">Контент</button>
-    <button class="filter-btn" onclick="filterCases('strategy', this)">Стратегия</button>
+    <button class="filter-btn" onclick="filterCases('new', this)">Новостройки</button>
+    <button class="filter-btn" onclick="filterCases('secondary', this)">Вторичный рынок</button>
+    <button class="filter-btn" onclick="filterCases('invest', this)">Инвестиции</button>
+    <button class="filter-btn" onclick="filterCases('house', this)">Дома</button>
   </div>
 
   <div class="cases-grid" id="casesGrid">
 
     <!-- CASE 1 -->
-    <div class="case-card" data-category="smm">
+    <div class="case-card" data-category="new">
       <div class="case-visual v1">
         <div class="case-icon-wrap">
-          <span>📱</span>
-          <span class="case-tag">SMM</span>
+          <span>🏙️</span>
+          <span class="case-tag">Новостройка</span>
         </div>
       </div>
       <div class="case-body">
         <span class="case-num">— 01</span>
-        <h2>Рост Instagram-аккаунта с 0 до 10 000 подписчиков</h2>
-        <p>Разработала контент-стратегию для локального бренда одежды: рубрикатор, визуальный код, tone of voice. За 4 месяца органический рост без рекламного бюджета.</p>
+        <h2>Семья с двумя детьми нашла квартиру мечты за 3 недели</h2>
+        <p>Клиенты искали 3-комнатную квартиру в Бостандыкском районе с хорошей школой рядом. Подобрала 5 вариантов, сопроводила на просмотрах, согласовала ипотеку в Халык Банке и закрыла сделку за 21 день.</p>
         <div class="case-metrics">
           <div class="metric">
-            <div class="metric-val">10K</div>
-            <div class="metric-label">Подписчиков</div>
+            <div class="metric-val">21</div>
+            <div class="metric-label">День до ключей</div>
           </div>
           <div class="metric">
-            <div class="metric-val">8.4%</div>
-            <div class="metric-label">Охват</div>
+            <div class="metric-val">−8%</div>
+            <div class="metric-label">Торг от цены</div>
           </div>
           <div class="metric">
-            <div class="metric-val">4 мес</div>
-            <div class="metric-label">Срок</div>
+            <div class="metric-val">95 м²</div>
+            <div class="metric-label">Площадь</div>
           </div>
         </div>
         <div class="tech-stack">
-          <span class="tech">Instagram</span>
-          <span class="tech">Reels</span>
-          <span class="tech">Canva</span>
+          <span class="tech">Новостройка</span>
+          <span class="tech">Ипотека</span>
+          <span class="tech">Бостандык</span>
         </div>
-        <a href="#" class="case-link">Читать подробнее →</a>
       </div>
     </div>
 
     <!-- CASE 2 -->
-    <div class="case-card reverse" data-category="brand">
+    <div class="case-card reverse" data-category="invest">
       <div class="case-visual v2">
         <div class="case-icon-wrap">
-          <span>🎨</span>
-          <span class="case-tag">Брендинг</span>
+          <span>📈</span>
+          <span class="case-tag">Инвестиции</span>
         </div>
       </div>
       <div class="case-body">
         <span class="case-num">— 02</span>
-        <h2>Ребрендинг кофейни: новый голос и визуал</h2>
-        <p>Переработала позиционирование сети кофеен: новый фирменный стиль, tone of voice, шаблоны для соцсетей и меню. Результат — рост среднего чека и узнаваемости.</p>
+        <h2>Инвестиционный портфель из 3 студий на стадии котлована</h2>
+        <p>Клиент хотел вложить 30 млн тенге в недвижимость. Подобрала три студии в разных ЖК с разными сроками сдачи. Через 18 месяцев стоимость портфеля выросла на 34%.</p>
         <div class="case-metrics">
           <div class="metric">
-            <div class="metric-val">+32%</div>
-            <div class="metric-label">Средний чек</div>
+            <div class="metric-val">+34%</div>
+            <div class="metric-label">Рост стоимости</div>
           </div>
           <div class="metric">
             <div class="metric-val">3</div>
-            <div class="metric-label">Локации</div>
+            <div class="metric-label">Объекта</div>
+          </div>
+          <div class="metric">
+            <div class="metric-val">18 мес</div>
+            <div class="metric-label">Горизонт</div>
           </div>
         </div>
         <div class="tech-stack">
-          <span class="tech">Figma</span>
-          <span class="tech">Illustrator</span>
-          <span class="tech">Notion</span>
+          <span class="tech">Инвестиции</span>
+          <span class="tech">Котлован</span>
+          <span class="tech">Рассрочка</span>
         </div>
-        <a href="#" class="case-link">Читать подробнее →</a>
       </div>
     </div>
 
     <!-- CASE 3 -->
-    <div class="case-card" data-category="content">
+    <div class="case-card" data-category="secondary">
       <div class="case-visual v3">
         <div class="case-icon-wrap">
-          <span>✍️</span>
-          <span class="case-tag">Контент</span>
+          <span>🔑</span>
+          <span class="case-tag">Вторичный рынок</span>
         </div>
       </div>
       <div class="case-body">
         <span class="case-num">— 03</span>
-        <h2>Контент-план для IT-стартапа: выход на рынок</h2>
-        <p>Создала редакционную политику и контент-план на 3 месяца для B2B SaaS-продукта. LinkedIn, Telegram, лонгриды — единая экосистема коммуникации с аудиторией.</p>
+        <h2>Продажа квартиры в центре — на 15% выше рынка</h2>
+        <p>Собственник хотел продать 2-комнатную квартиру в центре Алматы быстро и выгодно. Провела хоумстейджинг, профессиональную фотосъёмку и запустила продвижение. Покупатель нашёлся за 11 дней.</p>
         <div class="case-metrics">
           <div class="metric">
-            <div class="metric-val">60+</div>
-            <div class="metric-label">Публикаций</div>
+            <div class="metric-val">+15%</div>
+            <div class="metric-label">Выше рынка</div>
           </div>
           <div class="metric">
-            <div class="metric-val">×3</div>
-            <div class="metric-label">Трафик</div>
+            <div class="metric-val">11</div>
+            <div class="metric-label">Дней продажи</div>
           </div>
         </div>
         <div class="tech-stack">
-          <span class="tech">Notion</span>
-          <span class="tech">LinkedIn</span>
-          <span class="tech">Telegram</span>
+          <span class="tech">Вторичный рынок</span>
+          <span class="tech">Хоумстейджинг</span>
+          <span class="tech">Центр</span>
         </div>
-        <a href="#" class="case-link">Читать подробнее →</a>
       </div>
     </div>
 
     <!-- CASE 4 -->
-    <div class="case-card reverse" data-category="strategy">
+    <div class="case-card reverse" data-category="house">
       <div class="case-visual v4">
         <div class="case-icon-wrap">
-          <span>📊</span>
-          <span class="case-tag">Стратегия</span>
+          <span>🌿</span>
+          <span class="case-tag">Дом</span>
         </div>
       </div>
       <div class="case-body">
         <span class="case-num">— 04</span>
-        <h2>Маркетинговая стратегия для образовательного проекта</h2>
-        <p>Провела аудит, исследование аудитории и конкурентов. Построила воронку продаж и разработала стратегию продвижения онлайн-курсов — от осведомлённости до покупки.</p>
+        <h2>Переезд из городской квартиры в загородный дом</h2>
+        <p>Молодая пара хотела сменить шумный центр на тихий пригород с природой. Подобрала дом в закрытом посёлке под Алматы: 160 м², сад, горный вид. Сопроводила обмен квартиры на дом через альтернативную сделку.</p>
         <div class="case-metrics">
           <div class="metric">
-            <div class="metric-val">+180%</div>
-            <div class="metric-label">Продажи</div>
+            <div class="metric-val">160 м²</div>
+            <div class="metric-label">Площадь дома</div>
           </div>
           <div class="metric">
-            <div class="metric-val">2 мес</div>
-            <div class="metric-label">ROI-окупаемость</div>
+            <div class="metric-val">45 дней</div>
+            <div class="metric-label">Альт. сделка</div>
           </div>
         </div>
         <div class="tech-stack">
-          <span class="tech">Miro</span>
-          <span class="tech">Analytics</span>
-          <span class="tech">Notion</span>
+          <span class="tech">Загородный дом</span>
+          <span class="tech">Альт. сделка</span>
+          <span class="tech">Пригород</span>
         </div>
-        <a href="#" class="case-link">Читать подробнее →</a>
       </div>
     </div>
 
   </div>
 
   <footer>
-    <p>© 2026 Альжанова Алтынай · <a href="index.html" style="color: var(--accent); text-decoration: none;">На главную</a></p>
+    <p>© 2026 Альжанова Алтынай · Риэлтор · <a href="index.html" style="color: var(--accent); text-decoration: none;">На главную</a></p>
   </footer>
 
   <script>
