@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Кейсы — Альжанова Алтынай</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0d0d0f;
+      --surface:   #16161a;
+      --border:    #2a2a35;
+      --accent:    #7c5cfc;
+      --accent2:   #c084fc;
+      --text:      #e8e8f0;
+      --muted:     #888899;
+      --radius:    12px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      line-height: 1.6;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: rgba(13, 13, 15, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      font-size: 1.25rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-decoration: none;
+    }
+
+    nav ul { list-style: none; display: flex; gap: 2rem; }
+    nav a { color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+    nav a:hover, nav a.active { color: var(--text); }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      padding: 8rem 2rem 3rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .page-header h1 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.75rem;
+    }
+
+    .page-header p { color: var(--muted); max-width: 520px; }
+
+    /* ── FILTER ── */
+    .filter-row {
+      max-width: 1100px;
+      margin: 0 auto 2.5rem;
+      padding: 0 2rem;
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      padding: 0.4rem 1rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--muted);
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .filter-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .filter-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+    /* ── CASES GRID ── */
+    .cases-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem 6rem;
+      display: grid;
+      gap: 2rem;
+    }
+
+    /* ── CASE CARD ── */
+    .case-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      transition: border-color 0.25s, transform 0.25s;
+    }
+    .case-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+
+    .case-card.reverse { direction: rtl; }
+    .case-card.reverse > * { direction: ltr; }
+
+    .case-visual {
+      min-height: 280px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .case-visual::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0.15;
+    }
+
+    .v1 { background: linear-gradient(135deg, #1a1040, #2d1b69); }
+    .v1::before { background: radial-gradient(circle at 30% 50%, var(--accent), transparent); }
+    .v2 { background: linear-gradient(135deg, #0f1f3d, #1a3a6b); }
+    .v2::before { background: radial-gradient(circle at 70% 50%, #3b82f6, transparent); }
+    .v3 { background: linear-gradient(135deg, #1a2f1a, #2d5a2d); }
+    .v3::before { background: radial-gradient(circle at 50% 30%, #22c55e, transparent); }
+    .v4 { background: linear-gradient(135deg, #3d1a1a, #6b2020); }
+    .v4::before { background: radial-gradient(circle at 60% 60%, #ef4444, transparent); }
+
+    .case-icon-wrap {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .case-tag {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.7);
+    }
+
+    .case-body {
+      padding: 2rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .case-num {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+    }
+
+    .case-body h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .case-body p { color: var(--muted); font-size: 0.9rem; }
+
+    .case-metrics {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .metric { text-align: center; }
+    .metric-val {
+      font-size: 1.4rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .metric-label { font-size: 0.72rem; color: var(--muted); margin-top: 0.1rem; }
+
+    .tech-stack { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .tech { font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 4px; background: rgba(124,92,252,0.12); color: var(--accent2); }
+
+    .case-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+      margin-top: 0.25rem;
+      transition: gap 0.2s;
+    }
+    .case-link:hover { gap: 0.7rem; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 2rem;
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 720px) {
+      .case-card, .case-card.reverse {
+        grid-template-columns: 1fr;
+        direction: ltr;
+      }
+      .case-visual { min-height: 200px; }
+      .case-body { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="logo">А.А.К</a>
+    <ul>
+      <li><a href="index.html#about">Обо мне</a></li>
+      <li><a href="cases.html" class="active">Кейсы</a></li>
+      <li><a href="index.html#contact">Контакт</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-header">
+    <p class="section-label">Портфолио</p>
+    <h1>Избранные кейсы</h1>
+    <p>Проекты, в которых я решала реальные задачи бизнеса — от исследования до финального результата.</p>
+  </div>
+
+  <div class="filter-row">
+    <button class="filter-btn active" onclick="filterCases('all', this)">Все</button>
+    <button class="filter-btn" onclick="filterCases('smm', this)">SMM</button>
+    <button class="filter-btn" onclick="filterCases('brand', this)">Брендинг</button>
+    <button class="filter-btn" onclick="filterCases('content', this)">Контент</button>
+    <button class="filter-btn" onclick="filterCases('strategy', this)">Стратегия</button>
+  </div>
+
+  <div class="cases-grid" id="casesGrid">
+
+    <!-- CASE 1 -->
+    <div class="case-card" data-category="smm">
+      <div class="case-visual v1">
+        <div class="case-icon-wrap">
+          <span>📱</span>
+          <span class="case-tag">SMM</span>
+        </div>
+      </div>
+      <div class="case-body">
+        <span class="case-num">— 01</span>
+        <h2>Рост Instagram-аккаунта с 0 до 10 000 подписчиков</h2>
+        <p>Разработала контент-стратегию для локального бренда одежды: рубрикатор, визуальный код, tone of voice. За 4 месяца органический рост без рекламного бюджета.</p>
+        <div class="case-metrics">
+          <div class="metric">
+            <div class="metric-val">10K</div>
+            <div class="metric-label">Подписчиков</div>
+          </div>
+          <div class="metric">
+            <div class="metric-val">8.4%</div>
+            <div class="metric-label">Охват</div>
+          </div>
+          <div class="metric">
+            <div class="metric-val">4 мес</div>
+            <div class="metric-label">Срок</div>
+          </div>
+        </div>
+        <div class="tech-stack">
+          <span class="tech">Instagram</span>
+          <span class="tech">Reels</span>
+          <span class="tech">Canva</span>
+        </div>
+        <a href="#" class="case-link">Читать подробнее →</a>
+      </div>
+    </div>
+
+    <!-- CASE 2 -->
+    <div class="case-card reverse" data-category="brand">
+      <div class="case-visual v2">
+        <div class="case-icon-wrap">
+          <span>🎨</span>
+          <span class="case-tag">Брендинг</span>
+        </div>
+      </div>
+      <div class="case-body">
+        <span class="case-num">— 02</span>
+        <h2>Ребрендинг кофейни: новый голос и визуал</h2>
+        <p>Переработала позиционирование сети кофеен: новый фирменный стиль, tone of voice, шаблоны для соцсетей и меню. Результат — рост среднего чека и узнаваемости.</p>
+        <div class="case-metrics">
+          <div class="metric">
+            <div class="metric-val">+32%</div>
+            <div class="metric-label">Средний чек</div>
+          </div>
+          <div class="metric">
+            <div class="metric-val">3</div>
+            <div class="metric-label">Локации</div>
+          </div>
+        </div>
+        <div class="tech-stack">
+          <span class="tech">Figma</span>
+          <span class="tech">Illustrator</span>
+          <span class="tech">Notion</span>
+        </div>
+        <a href="#" class="case-link">Читать подробнее →</a>
+      </div>
+    </div>
+
+    <!-- CASE 3 -->
+    <div class="case-card" data-category="content">
+      <div class="case-visual v3">
+        <div class="case-icon-wrap">
+          <span>✍️</span>
+          <span class="case-tag">Контент</span>
+        </div>
+      </div>
+      <div class="case-body">
+        <span class="case-num">— 03</span>
+        <h2>Контент-план для IT-стартапа: выход на рынок</h2>
+        <p>Создала редакционную политику и контент-план на 3 месяца для B2B SaaS-продукта. LinkedIn, Telegram, лонгриды — единая экосистема коммуникации с аудиторией.</p>
+        <div class="case-metrics">
+          <div class="metric">
+            <div class="metric-val">60+</div>
+            <div class="metric-label">Публикаций</div>
+          </div>
+          <div class="metric">
+            <div class="metric-val">×3</div>
+            <div class="metric-label">Трафик</div>
+          </div>
+        </div>
+        <div class="tech-stack">
+          <span class="tech">Notion</span>
+          <span class="tech">LinkedIn</span>
+          <span class="tech">Telegram</span>
+        </div>
+        <a href="#" class="case-link">Читать подробнее →</a>
+      </div>
+    </div>
+
+    <!-- CASE 4 -->
+    <div class="case-card reverse" data-category="strategy">
+      <div class="case-visual v4">
+        <div class="case-icon-wrap">
+          <span>📊</span>
+          <span class="case-tag">Стратегия</span>
+        </div>
+      </div>
+      <div class="case-body">
+        <span class="case-num">— 04</span>
+        <h2>Маркетинговая стратегия для образовательного проекта</h2>
+        <p>Провела аудит, исследование аудитории и конкурентов. Построила воронку продаж и разработала стратегию продвижения онлайн-курсов — от осведомлённости до покупки.</p>
+        <div class="case-metrics">
+          <div class="metric">
+            <div class="metric-val">+180%</div>
+            <div class="metric-label">Продажи</div>
+          </div>
+          <div class="metric">
+            <div class="metric-val">2 мес</div>
+            <div class="metric-label">ROI-окупаемость</div>
+          </div>
+        </div>
+        <div class="tech-stack">
+          <span class="tech">Miro</span>
+          <span class="tech">Analytics</span>
+          <span class="tech">Notion</span>
+        </div>
+        <a href="#" class="case-link">Читать подробнее →</a>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>© 2026 Альжанова Алтынай · <a href="index.html" style="color: var(--accent); text-decoration: none;">На главную</a></p>
+  </footer>
+
+  <script>
+    function filterCases(cat, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.case-card').forEach(card => {
+        const show = cat === 'all' || card.dataset.category === cat;
+        card.style.display = show ? 'grid' : 'none';
+      });
+    }
+  </script>
+
+</body>
+</html>
