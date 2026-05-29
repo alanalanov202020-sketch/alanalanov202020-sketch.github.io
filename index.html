@@ -8,13 +8,13 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:        #0d0d0f;
-      --surface:   #16161a;
-      --border:    #2a2a35;
-      --accent:    #7c5cfc;
-      --accent2:   #c084fc;
-      --text:      #e8e8f0;
-      --muted:     #888899;
+      --bg:        #0d0b08;
+      --surface:   #17140e;
+      --border:    #332c1a;
+      --accent:    #c9a84c;
+      --accent2:   #f0d07a;
+      --text:      #f0ead8;
+      --muted:     #8a7d5a;
       --radius:    12px;
     }
 
@@ -75,15 +75,20 @@
       padding: 6rem 2rem 4rem;
       position: relative;
       overflow: hidden;
+      background:
+        linear-gradient(to bottom,
+          rgba(13,11,8,0.55) 0%,
+          rgba(13,11,8,0.75) 60%,
+          rgba(13,11,8,0.95) 100%),
+        url('https://images.unsplash.com/photo-1568515045052-f9a854d70bfd?w=1920&q=80')
+        center center / cover no-repeat;
     }
 
     #hero::before {
       content: '';
       position: absolute;
-      width: 600px; height: 600px;
-      top: -100px; left: 50%;
-      transform: translateX(-50%);
-      background: radial-gradient(circle, rgba(124, 92, 252, 0.15) 0%, transparent 70%);
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 80%, rgba(201,168,76,0.12) 0%, transparent 65%);
       pointer-events: none;
     }
 
