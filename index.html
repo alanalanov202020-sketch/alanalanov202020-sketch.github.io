@@ -8,13 +8,13 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:        rgba(8, 6, 3, 0.68);
-      --surface:   rgba(18, 13, 7, 0.78);
-      --border:    rgba(51, 44, 26, 0.75);
+      --bg:        rgba(8, 6, 3, 0.18);
+      --surface:   rgba(18, 13, 7, 0.28);
+      --border:    rgba(201, 168, 76, 0.25);
       --accent:    #c9a84c;
       --accent2:   #f0d07a;
-      --text:      #f0ead8;
-      --muted:     #a89870;
+      --text:      #fff8e8;
+      --muted:     #d4c49a;
       --radius:    12px;
     }
 
@@ -80,12 +80,7 @@
       padding: 6rem 2rem 4rem;
       position: relative;
       overflow: hidden;
-      background: linear-gradient(
-        to bottom,
-        rgba(8,6,3,0.25) 0%,
-        rgba(8,6,3,0.55) 70%,
-        rgba(8,6,3,0.82) 100%
-      );
+      background: none;
     }
 
     #hero::before {
@@ -116,6 +111,7 @@
       font-weight: 800;
       letter-spacing: -0.03em;
       line-height: 1.15;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.7);
     }
 
     .gradient-text {
@@ -130,6 +126,7 @@
       color: var(--muted);
       font-size: 1.1rem;
       max-width: 480px;
+      text-shadow: 0 1px 10px rgba(0,0,0,0.6);
     }
 
     .cta-row {
