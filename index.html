@@ -8,20 +8,25 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:        #0d0b08;
-      --surface:   #17140e;
-      --border:    #332c1a;
+      --bg:        rgba(8, 6, 3, 0.68);
+      --surface:   rgba(18, 13, 7, 0.78);
+      --border:    rgba(51, 44, 26, 0.75);
       --accent:    #c9a84c;
       --accent2:   #f0d07a;
       --text:      #f0ead8;
-      --muted:     #8a7d5a;
+      --muted:     #a89870;
       --radius:    12px;
     }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+      background:
+        url('astana1.jpg') center center / cover no-repeat fixed;
+      background-color: #080603;
+    }
 
     body {
-      background: var(--bg);
+      background: transparent;
       color: var(--text);
       font-family: 'Segoe UI', system-ui, sans-serif;
       line-height: 1.6;
@@ -75,13 +80,12 @@
       padding: 6rem 2rem 4rem;
       position: relative;
       overflow: hidden;
-      background:
-        linear-gradient(to bottom,
-          rgba(13,11,8,0.55) 0%,
-          rgba(13,11,8,0.75) 60%,
-          rgba(13,11,8,0.95) 100%),
-        url('astana1.jpg')
-        center center / cover no-repeat;
+      background: linear-gradient(
+        to bottom,
+        rgba(8,6,3,0.25) 0%,
+        rgba(8,6,3,0.55) 70%,
+        rgba(8,6,3,0.82) 100%
+      );
     }
 
     #hero::before {
@@ -220,6 +224,8 @@
 
     .stat-card {
       background: var(--surface);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 1.5rem;
@@ -253,6 +259,8 @@
 
     .project-card {
       background: var(--bg);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 1.75rem;
@@ -279,6 +287,8 @@
     /* ── CONTACT ── */
     .contact-wrap {
       background: var(--surface);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 3rem;

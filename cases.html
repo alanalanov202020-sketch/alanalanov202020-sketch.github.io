@@ -8,20 +8,25 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:        #0d0b08;
-      --surface:   #17140e;
-      --border:    #332c1a;
+      --bg:        rgba(8, 6, 3, 0.68);
+      --surface:   rgba(18, 13, 7, 0.78);
+      --border:    rgba(51, 44, 26, 0.75);
       --accent:    #c9a84c;
       --accent2:   #f0d07a;
       --text:      #f0ead8;
-      --muted:     #8a7d5a;
+      --muted:     #a89870;
       --radius:    12px;
     }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+      background:
+        url('astana2.jpg') center center / cover no-repeat fixed;
+      background-color: #080603;
+    }
 
     body {
-      background: var(--bg);
+      background: transparent;
       color: var(--text);
       font-family: 'Segoe UI', system-ui, sans-serif;
       line-height: 1.6;
@@ -57,12 +62,11 @@
 
     /* ── PAGE HEADER ── */
     .page-header-wrap {
-      background:
-        linear-gradient(to bottom,
-          rgba(13,11,8,0.60) 0%,
-          rgba(13,11,8,0.88) 100%),
-        url('astana2.jpg')
-        center 40% / cover no-repeat;
+      background: linear-gradient(
+        to bottom,
+        rgba(8,6,3,0.30) 0%,
+        rgba(8,6,3,0.72) 100%
+      );
       padding-bottom: 3rem;
     }
 
@@ -125,6 +129,8 @@
     /* ── CASE CARD ── */
     .case-card {
       background: var(--surface);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       overflow: hidden;
