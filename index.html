@@ -295,6 +295,33 @@
     .tech-stack { display: flex; flex-wrap: wrap; gap: 0.4rem; }
     .tech { font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 4px; background: rgba(124,92,252,0.12); color: var(--accent2); }
 
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      justify-content: center;
+      max-width: 1100px;
+      margin: 0 auto 2.5rem;
+    }
+    .filter-btn {
+      padding: 0.5rem 1.1rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--muted);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+    }
+    .filter-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .filter-btn.active {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #1a1305;
+      border-color: transparent;
+    }
+    .project-card.is-hidden { display: none; }
+
     /* ── CONTACT ── */
     .contact-wrap {
       background: var(--surface);
@@ -441,9 +468,20 @@
   <section id="projects">
     <p class="section-label">Объекты</p>
     <h2>Актуальные предложения</h2>
+
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">Все</button>
+      <button class="filter-btn" data-filter="studio">Студии</button>
+      <button class="filter-btn" data-filter="1">1-комнатные</button>
+      <button class="filter-btn" data-filter="3">3-комнатные</button>
+      <button class="filter-btn" data-filter="4">4-комнатные</button>
+      <button class="filter-btn" data-filter="5">5-комнатные</button>
+      <button class="filter-btn" data-filter="house">Дома</button>
+    </div>
+
     <div class="projects-grid">
 
-      <div class="project-card">
+      <div class="project-card" data-rooms="5">
         <div class="project-icon">🏙️</div>
         <h3>ЖК «Zhana Alem» — СРОЧНО!</h3>
         <video src="zhana-alem-video.mov" controls preload="metadata" style="width:100%; border-radius:8px; margin-bottom:1rem; display:block;"></video>
@@ -457,7 +495,7 @@
         <a href="https://krisha.kz/a/show/1013867915" target="_blank" rel="noopener" style="display:inline-block; margin-top:1rem; color:var(--accent); font-size:0.85rem; font-weight:600; text-decoration:none;">Смотреть объявление →</a>
       </div>
 
-      <div class="project-card">
+      <div class="project-card" data-rooms="3">
         <div class="project-icon">🏡</div>
         <h3>Резиденция «Нурлы Жол»</h3>
         <p>3-комнатная квартира, 95 м² · 7 этаж · Комфорт+ · Бостандыкский район. Готовая отделка, смарт-дом, консьерж-сервис.</p>
@@ -468,7 +506,7 @@
         </div>
       </div>
 
-      <div class="project-card">
+      <div class="project-card" data-rooms="studio">
         <div class="project-icon">🏢</div>
         <h3>ЖК «Sunrise City»</h3>
         <p>Студия, 38 м² · 15 этаж · Медеуский район. Инвестиционный вариант — высокая ликвидность и доходность от аренды от 8% годовых.</p>
@@ -479,7 +517,7 @@
         </div>
       </div>
 
-      <div class="project-card">
+      <div class="project-card" data-rooms="house">
         <div class="project-icon">🌿</div>
         <h3>Коттеджный посёлок «Зелёная долина»</h3>
         <p>Дом 180 м² · Участок 8 соток · Пригород Алматы. Закрытый посёлок, охрана, детская площадка, озеро в 5 мин ходьбы.</p>
@@ -490,7 +528,7 @@
         </div>
       </div>
 
-      <div class="project-card">
+      <div class="project-card" data-rooms="1">
         <div class="project-icon">🏗️</div>
         <h3>ЖК «Grand Avenue»</h3>
         <p>1-комнатная квартира, 48 м² · Строящийся дом, сдача 2026 · Наурызбайский район. Цена застройщика, рассрочка 0%.</p>
@@ -501,7 +539,7 @@
         </div>
       </div>
 
-      <div class="project-card">
+      <div class="project-card" data-rooms="4">
         <div class="project-icon">🔑</div>
         <h3>Вторичный рынок — Центр</h3>
         <p>4-комнатная квартира, 120 м² · Сталинка · Центр Алматы. Высокие потолки, паркет, историческая архитектура, юридически чистая.</p>
@@ -542,5 +580,19 @@
     <p>© 2026 Альжанова Алтынай · Риэлтор · Астана</p>
   </footer>
 
+  <script>
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        projectCards.forEach(card => {
+          card.classList.toggle('is-hidden', filter !== 'all' && card.dataset.rooms !== filter);
+        });
+      });
+    });
+  </script>
 </body>
 </html>
