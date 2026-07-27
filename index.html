@@ -322,6 +322,28 @@
     }
     .project-card.is-hidden { display: none; }
 
+    .cabinet-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      max-width: 1100px;
+      margin: 0 auto 2rem;
+    }
+    .cabinet-link {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.65rem 1.25rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .cabinet-link:hover { border-color: var(--accent); color: var(--text); }
+
     /* ── CONTACT ── */
     .contact-wrap {
       background: var(--surface);
@@ -479,6 +501,11 @@
   <section id="projects">
     <p class="section-label">Объекты</p>
     <h2>Актуальные предложения</h2>
+
+    <div class="cabinet-links">
+      <a href="https://krisha.kz/my/prodazha/kvartiry/tab-live/specialist-12206371/" target="_blank" rel="noopener" class="cabinet-link">🔑 Личный кабинет — Квартиры</a>
+      <a href="https://krisha.kz/my/prodazha/kommercheskaya-nedvizhimost/tab-live/specialist-12206371/" target="_blank" rel="noopener" class="cabinet-link">🔑 Личный кабинет — Коммерческая недвижимость</a>
+    </div>
 
     <div class="filter-bar">
       <button class="filter-btn active" data-filter="all">Все</button>
