@@ -136,6 +136,12 @@
       font-size: 1.1rem;
       max-width: 480px;
       text-shadow: 0 1px 10px rgba(0,0,0,0.6);
+      background: var(--bg);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem 1.5rem;
     }
 
     .cta-row {
@@ -166,7 +172,9 @@
     .btn-primary:hover { box-shadow: 0 6px 28px rgba(124, 92, 252, 0.5); }
 
     .btn-outline {
-      background: transparent;
+      background: var(--bg);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       color: var(--text);
       border: 1px solid var(--border);
     }
